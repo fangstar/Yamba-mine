@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Yamba Fangstar</string>
+
+  <string name="titleYamba">Yamba Fangstar</string>
+  <string name="titleStatus">Status Update Fangstar</string>
+
+  <string name="hintText">Please enter your 140-character status</string>
+  <string name="buttonUpdate">Update</string>
+  <string name="startservice">Start Service</string>
+  <string name="stopService">Stop Service</string>
+  <string name="refresh">Refresh</string>
+  <string name="username">Username</string>
+  <string name="serverurl">Server URL:</string>
+  <string name="password">Password</string>
+  <string name="preferences">Preferences</string>
+  <string name="delaytime">Delay (secs)</string>
+  <string name="timeline">Timeline</string>
+</resources>
