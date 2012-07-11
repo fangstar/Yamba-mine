@@ -23,6 +23,7 @@ public class YambaApp extends Application implements
 		Log.d(TAG, "onCreate");
 
 		// Pref
+		PreferenceManager.setDefaultValues(this, R.xml.prefs, true);
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 		prefs.registerOnSharedPreferenceChangeListener(this);
@@ -34,9 +35,14 @@ public class YambaApp extends Application implements
 
 	public Twitter getTwitter() {
 		if (twitter == null) {
-			username = prefs.getString("username", "student");
-			password = prefs.getString("password", "password");
-			url = prefs.getString("serverURL", "http:\\\\yamba.marakana.com\\api");
+			//username = prefs.getString("username", "student");
+			//password = prefs.getString("password", "password");
+			//url = prefs.getString("serverURL", "http:\\\\yamba.marakana.com\\api");
+			username = prefs.getString("username", "");
+			password = prefs.getString("password", "");
+			url = prefs.getString("serverURL", "");
+			Log.d(TAG, String.format("%s/%s@%s", username, password, url));
+
 			// Twitter
 			twitter = new Twitter(username, password);
 			twitter.setAPIRootUrl(url);
@@ -52,7 +58,8 @@ public class YambaApp extends Application implements
 
 	void getDelayFromPrefs() {
 		//delay = prefs.getString("delaytime", "30");
-		delay = prefs.getString("delaylist", "30");
+		//delay = prefs.getString("delaylist", "30");
+		delay = prefs.getString("interval", "1");
 	}
 
 	public String getDelay() {

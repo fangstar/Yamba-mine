@@ -9,15 +9,18 @@ package com.wordpress.mfcoding.yamba;
 
 public final class R {
     public static final class array {
-        public static final int delaytimes=0x7f060000;
+        public static final int interval_names=0x7f050000;
+        /**  in seconds 
+         */
+        public static final int interval_values=0x7f050001;
     }
     public static final class attr {
     }
     public static final class color {
-        public static final int edit_text_background=0x7f050001;
-        public static final int edit_text_foreground=0x7f050002;
-        public static final int edit_text_hint=0x7f050003;
-        public static final int title_text_color=0x7f050000;
+        public static final int edit_text_background=0x7f060001;
+        public static final int edit_text_foreground=0x7f060002;
+        public static final int edit_text_hint=0x7f060003;
+        public static final int title_text_color=0x7f060000;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
@@ -53,6 +56,8 @@ public final class R {
         public static final int buttonUpdate=0x7f070004;
         public static final int delaytime=0x7f07000c;
         public static final int hintText=0x7f070003;
+        public static final int interval=0x7f07000e;
+        public static final int interval_summary=0x7f07000f;
         public static final int password=0x7f07000a;
         public static final int preferences=0x7f07000b;
         public static final int refresh=0x7f070007;
