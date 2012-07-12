@@ -1,4 +1,4 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 import java.util.List;
 
@@ -22,24 +22,11 @@ public class RefreshService extends IntentService {
 		super.onCreate();
 		Log.d(TAG, "onCreate");
 	}
-
 	
 	@Override
 	protected void onHandleIntent(Intent arg0) {
 		Log.d(TAG, "onHandleIntent");
-		StatusData statusData = ((YambaApp) getApplication()).statusData;
-		try {
-			List<Status> timeline = ((YambaApp) getApplication()).getTwitter().getPublicTimeline();
-			for (Status status : timeline) {
-				statusData.insert(status);
-				Log.d(TAG, String.format("%s: %s", status.user.name,
-						status.text));
-			}
-		} catch (TwitterException e) {
-			//e.printStackTrace();
-			Log.e(TAG, "TwitterException", e);
-		}
-
+		((YambaApp) getApplication()).pullAndInsert();
 	}
 
 	@Override

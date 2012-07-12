@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 public final class R {
     public static final class array {
@@ -68,6 +68,7 @@ public final class R {
         public static final int titleStatus=0x7f070002;
         public static final int titleYamba=0x7f070001;
         public static final int username=0x7f070008;
+        public static final int yambaurl=0x7f070010;
     }
     public static final class xml {
         public static final int prefs=0x7f040000;

@@ -1,4 +1,6 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
+
+import java.util.List;
 
 import winterwell.jtwitter.Twitter.Status;
 import android.content.ContentValues;
@@ -49,7 +51,7 @@ public class StatusData {
 				C_CREATED_AT + " DESC");
 		return cursor;
 	}
-	
+
 	class DbHelper extends SQLiteOpenHelper {
 
 		public DbHelper() {

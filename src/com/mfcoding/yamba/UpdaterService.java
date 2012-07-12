@@ -1,4 +1,4 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import android.util.Log;
 public class UpdaterService extends Service {
 	static final String TAG = "UpdaterService";
 	boolean running = false;
-	
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -35,19 +35,16 @@ public class UpdaterService extends Service {
 			public void run() {
 				try {
 					while (running) {
-						List<Status> timeline = ((YambaApp) getApplication()).getTwitter().getPublicTimeline();
-						for (Status s : timeline) {
-							((YambaApp)getApplication()).statusData.insert(s);
-							Log.d(TAG, String.format("%s: %s", s.user.name,
-									s.text));
-						}
-						Thread.sleep(Integer.valueOf(((YambaApp) getApplication()).getDelay()) * 1000);
+						((YambaApp) getApplication()).pullAndInsert();
+						int delay = Integer.parseInt(((YambaApp) getApplication()).getDelay());
+						Thread.sleep(delay * 1000);
 					}
-				} catch (TwitterException e) {
-					e.printStackTrace();
+				} catch (NumberFormatException e) {
+					Log.d(TAG, "Updater NumberFormatException", e);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					Log.d(TAG, "Updater InterruptedException", e);
 				}
+
 			}
 		}.start();
 		return super.onStartCommand(intent, flags, startId);

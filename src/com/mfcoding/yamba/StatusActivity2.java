@@ -1,4 +1,4 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.TwitterException;

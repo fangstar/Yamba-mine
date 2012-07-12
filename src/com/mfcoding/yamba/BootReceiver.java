@@ -1,4 +1,4 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

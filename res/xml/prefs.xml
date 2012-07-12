@@ -12,7 +12,7 @@
         android:password="true"
         android:title="@string/password" />
     <EditTextPreference
-        android:defaultValue="http:\/\/yamba.marakana.com\/api"
+        android:defaultValue="http:\\\\yamba.marakana.com\\api"
         android:key="serverURL"
         android:title="@string/serverurl" />
 

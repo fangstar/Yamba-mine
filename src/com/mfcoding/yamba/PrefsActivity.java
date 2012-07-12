@@ -1,4 +1,4 @@
-package com.wordpress.mfcoding.yamba;
+package com.mfcoding.yamba;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
