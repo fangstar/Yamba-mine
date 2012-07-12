@@ -2,18 +2,20 @@
 <resources>
 
     <string-array name="interval_names">
-        <item>A minute</item>
         <item>Fifteen minutes</item>
-        <item>Once a day</item>
-        <item>Never</item>
+        <item>Half hour</item>
+        <item>Hour</item>
+        <item>Half Day</item>
+        <item>Once a Day</item>
     </string-array>
     
     <!-- in seconds -->
     <string-array name="interval_values">
-        <item>60</item>
-        <item>900</item>
-        <item>86400</item>
-        <item>0</item>
+        <item>900000</item>
+        <item>1800000</item>
+        <item>3600000</item>
+        <item>43200000</item>
+        <item>86400000</item>
     </string-array>
 
 </resources>

@@ -30,10 +30,13 @@
 
         <service android:name=".UpdaterService" >
         </service>
-        <service android:name="com.mfcoding.yamba.RefreshService" >
+        <service android:name=".RefreshService" >
+            <intent-filter>
+                <action android:name="com.mfcoding.action.REFRESH" />
+            </intent-filter>
         </service>
 
-        <activity android:name="com.mfcoding.yamba.PrefsActivity" >
+        <activity android:name=".PrefsActivity" >
         </activity>
 
         <receiver android:name=".BootReceiver" >
