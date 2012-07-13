@@ -32,8 +32,8 @@ public final class R {
         public static final int itemPrefs=0x7f09000b;
         public static final int itemRefresh=0x7f09000a;
         public static final int itemStartService=0x7f090008;
+        public static final int itemStatus=0x7f09000c;
         public static final int itemStopService=0x7f090009;
-        public static final int itemTimeline=0x7f09000c;
         public static final int listOut=0x7f090007;
         public static final int textCount=0x7f090004;
         public static final int textView1=0x7f090002;
@@ -63,6 +63,7 @@ public final class R {
         public static final int refresh=0x7f070007;
         public static final int serverurl=0x7f070009;
         public static final int startservice=0x7f070005;
+        public static final int statusupdate=0x7f070011;
         public static final int stopService=0x7f070006;
         public static final int timeline=0x7f07000d;
         public static final int titleStatus=0x7f070002;

@@ -18,5 +18,6 @@
     <string name="interval">Refresh Interval</string>
     <string name="interval_summary">How frequently to refresh timeline?</string>
     <string name="yambaurl">http:\\yamba.marakana.com\api</string>
+    <string name="statusupdate">Status Update</string>
 
 </resources>

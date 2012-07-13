@@ -18,8 +18,8 @@
         android:title="@string/preferences">
     </item>
     <item
-        android:id="@+id/itemTimeline"
-        android:title="@string/timeline">
+        android:id="@+id/itemStatus"
+        android:title="@string/statusupdate">
     </item>
 
 </menu>

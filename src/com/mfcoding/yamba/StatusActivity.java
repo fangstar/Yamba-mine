@@ -4,6 +4,8 @@ import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.TwitterException;
 import android.app.Activity;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,9 +21,12 @@ import android.widget.Toast;
 public class StatusActivity extends Activity implements OnClickListener,
 		TextWatcher { // <1>
 	private static final String TAG = "StatusActivity";
+	static final String PROVIDER = LocationManager.GPS_PROVIDER;
 	EditText editText;
 	Button updateButton;
 	TextView textCount; // <2>
+//	LocationManager locationManager;
+//	Location location;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -41,6 +46,8 @@ public class StatusActivity extends Activity implements OnClickListener,
 		textCount.setTextColor(Color.GREEN); // <5>
 		editText.addTextChangedListener(this); // <6>
 
+//		locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+//		location = locationManager.getLastKnownLocation(PROVIDER);
 	}
 
 	@Override

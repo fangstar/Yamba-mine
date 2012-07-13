@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mfcoding.yamba"
+    android:installLocation="internalOnly"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -32,18 +33,24 @@
         </service>
         <service android:name=".RefreshService" >
             <intent-filter>
-                <action android:name="com.mfcoding.action.REFRESH" />
+                <action android:name="com.mfcoding.yamba.REFRESH" />
             </intent-filter>
         </service>
 
         <activity android:name=".PrefsActivity" >
         </activity>
 
-        <receiver android:name=".BootReceiver" >
+        <receiver android:name=".RefreshScheduleReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.mfcoding.yamba.REFRESH_ALARM" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name=".StatusProvider"
+            android:authorities="com.mfcoding.yamba.provider" >
+        </provider>
     </application>
 
     <!-- <1> -->

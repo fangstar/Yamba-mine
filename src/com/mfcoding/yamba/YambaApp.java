@@ -18,11 +18,12 @@ public class YambaApp extends Application implements
 	static final String TAG = "YambaApp";
 	public static final String ACTION_NEW_STATUS = "com.mfcoding.yamba.NEW_STATUS";
 	public static final String ACTION_REFRESH = "com.mfcoding.yamba.REFRESH";
+	public static final String ACTION_REFRESH_ALARM = "com.mfcoding.yamba.REFRESHALARM";
 	Twitter twitter;
 	SharedPreferences prefs;
 	String username, password, url;
 	String delay;
-	StatusData statusData;
+	//StatusData statusData;
 
 	@Override
 	public void onCreate() {
@@ -36,21 +37,24 @@ public class YambaApp extends Application implements
 		prefs.registerOnSharedPreferenceChangeListener(this);
 
 		getDelayFromPrefs();
-		
-		statusData = new StatusData(this);
+
+		//statusData = new StatusData(this);
 	}
 
 	public Twitter getTwitter() {
 		if (twitter == null) {
-			//username = prefs.getString("username", "student");
-			//password = prefs.getString("password", "password");
-			//url = prefs.getString("serverURL", "http:\\\\yamba.marakana.com\\api");
+			// username = prefs.getString("username", "student");
+			// password = prefs.getString("password", "password");
+			// url = prefs.getString("serverURL",
+			// "http:\\\\yamba.marakana.com\\api");
 			username = prefs.getString("username", "");
 			password = prefs.getString("password", "");
 			url = prefs.getString("serverURL", "");
-			Log.d(TAG, String.format("Real Login info: %s/%s@%s", username, password, url));
-			url = "http:\\\\yamba.marakana.com\\api";
-//			Log.d(TAG, String.format("%s/%s@%s", username, password, url));
+			Log.d(TAG, String.format("Real Login info: %s/%s@%s", username,
+					password, url));
+			// url = "http:\\\\yamba.marakana.com\\api";
+			// url = "http://yamba.marakana.com/api";
+			// Log.d(TAG, String.format("%s/%s@%s", username, password, url));
 
 			// Twitter
 			twitter = new Twitter(username, password);
@@ -59,15 +63,18 @@ public class YambaApp extends Application implements
 		return twitter;
 	}
 
-	public void onSharedPreferenceChanged(SharedPreferences arg0, String arg1) {
-		Log.d(TAG, "onSharedPreferenceChanged");
+	static final Intent refreshIntent = new Intent("ACTION_REFRESH_ALARM");
+
+	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		twitter = null;
-		getDelayFromPrefs();
+		// getDelayFromPrefs();
+		sendBroadcast(refreshIntent);
+		Log.d(TAG, "onSharedPreferenceChanged for key:" + key);
 	}
 
 	void getDelayFromPrefs() {
-		//delay = prefs.getString("delaytime", "30");
-		//delay = prefs.getString("delaylist", "30");
+		// delay = prefs.getString("delaytime", "30");
+		// delay = prefs.getString("delaylist", "30");
 		delay = prefs.getString("interval", "1");
 		delay = "5";
 	}
@@ -75,15 +82,19 @@ public class YambaApp extends Application implements
 	public String getDelay() {
 		return delay;
 	}
-	
+
 	long lastTimestampSeen = -1;
+
 	public int pullAndInsert() {
 		int count = 0;
 		long lastTimestampSeen = -1;
 		try {
 			List<Status> timeline = getTwitter().getPublicTimeline();
 			for (Status status : timeline) {
-				statusData.insert(status);
+				//statusData.insert(status);
+				getContentResolver().insert(StatusProvider.CONTENT_URI,
+						StatusProvider.statusToValues(status));
+				
 				Log.d(TAG, String.format("%s: %s", status.user.name,
 						status.text));
 				if (status.createdAt.getTime()>lastTimestampSeen) {
@@ -100,6 +111,4 @@ public class YambaApp extends Application implements
 		}
 		this.lastTimestampSeen = lastTimestampSeen;
 		return count;
-	}	
-
-}
+	}}
